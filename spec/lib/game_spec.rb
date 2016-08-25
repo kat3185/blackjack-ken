@@ -1,18 +1,18 @@
 require "spec_helper"
 
-RSpec.describe Game do
-  class Game
+RSpec.describe Blackjack::Game do
+  class Blackjack::Game
     public :announce_winner
   end
-  let(:game) { Game.new("Ken") }
+  let(:game) { Blackjack::Game.new("Ken") }
 
   describe '#initialize' do
     it "has two players, an computer, and a pre-set input" do
       expect(game.player.name).to eq("Ken")
-      expect(game.player).to be_a(Player)
-      expect(game.computer).to be_a(Player)
+      expect(game.player).to be_a(Blackjack::Player)
+      expect(game.computer).to be_a(Blackjack::Player)
       expect(game.computer.name).to eq("Dealer")
-      expect(game.deck).to be_a(Deck)
+      expect(game.deck).to be_a(Blackjack::Deck)
       expect(game.input).to eq(" ")
     end
   end

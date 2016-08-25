@@ -1,12 +1,12 @@
 require "spec_helper"
 
-RSpec.describe Deck do
-  let(:deck) { Deck.new }
+RSpec.describe Blackjack::Deck do
+  let(:deck) { Blackjack::Deck.new }
 
   describe '#initialize' do
     it "has an array of 52 card objects" do
       expect(deck.cards.length).to eq(52)
-      expect(deck.cards.first).to be_a(Card)
+      expect(deck.cards.first).to be_a(Blackjack::Card)
     end
   end
 

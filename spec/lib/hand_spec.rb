@@ -1,11 +1,10 @@
 require "spec_helper"
 
-RSpec.describe Hand do
-  let(:hand) { Hand.new }
-  let(:king) { Card.new("K", "♠") }
-  let(:ace) { Card.new("A", "♠") }
-  let(:card) { Card.new(9, "♠") }
-  let(:five) { Card.new(5, "♠") }
+RSpec.describe Blackjack::Hand do
+  let(:hand) { Blackjack::Hand.new }
+  let(:king) { Blackjack::Card.new("K", "♠") }
+  let(:ace) { Blackjack::Card.new("A", "♠") }
+  let(:five) { Blackjack::Card.new(5, "♠") }
 
   describe '#initialize' do
     it "has an array of cards" do

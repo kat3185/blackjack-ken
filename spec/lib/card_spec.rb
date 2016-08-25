@@ -1,10 +1,10 @@
 require "spec_helper"
 
-RSpec.describe Card do
-  let(:king) { Card.new("K", "♠") }
-  let(:ace) { Card.new("A", "♠") }
-  let(:card) { Card.new(9, "♠") }
-  let(:five) { Card.new(5, "♠") }
+RSpec.describe Blackjack::Card do
+  let(:king) { Blackjack::Card.new("K", "♠") }
+  let(:ace) { Blackjack::Card.new("A", "♠") }
+  let(:card) { Blackjack::Card.new(9, "♠") }
+  let(:five) { Blackjack::Card.new(5, "♠") }
 
   describe '#initialize' do
     it "has a rank and a suit" do

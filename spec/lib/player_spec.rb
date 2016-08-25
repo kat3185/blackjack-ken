@@ -1,18 +1,18 @@
 require "spec_helper"
 
-RSpec.describe Player do
-  let(:hand) { Hand.new }
-  let(:king) { Card.new("K", "♠") }
-  let(:ace) { Card.new("A", "♠") }
-  let(:card) { Card.new(9, "♠") }
-  let(:five) { Card.new(5, "♠") }
-  let(:player) { Player.new(name: "Ken", hand: hand, human: true) }
-  let(:dealer) { Player.new(name: "Dealer", hand: hand) }
+RSpec.describe Blackjack::Player do
+  let(:hand) { Blackjack::Hand.new }
+  let(:king) { Blackjack::Card.new("K", "♠") }
+  let(:ace) { Blackjack::Card.new("A", "♠") }
+  let(:card) { Blackjack::Card.new(9, "♠") }
+  let(:five) { Blackjack::Card.new(5, "♠") }
+  let(:player) { Blackjack::Player.new(name: "Ken", hand: hand, human: true) }
+  let(:dealer) { Blackjack::Player.new(name: "Dealer", hand: hand) }
 
   describe '#initialize' do
     it "has a name and a hand" do
       expect(player.name).to eq("Ken")
-      expect(player.hand).to be_a(Hand)
+      expect(player.hand).to be_a(Blackjack::Hand)
     end
   end
 
