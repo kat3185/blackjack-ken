@@ -5,3 +5,5 @@ a computer.
 `gem install blackjack-ken`
 
 `require 'blackjack-ken'`
+
+`Blackjack.play`
