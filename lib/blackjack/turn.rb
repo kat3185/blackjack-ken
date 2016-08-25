@@ -19,7 +19,6 @@ class Blackjack
     end
 
     private
-
     def over?
       player.bust? || player.stand?
     end

@@ -18,7 +18,6 @@ class Blackjack
     end
 
     private
-
     def play_again?
       print "Would you like to play again? (y/n) "
       input = gets.chomp.downcase
