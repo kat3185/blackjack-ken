@@ -1,8 +1,10 @@
 class Player
   attr_accessor :name, :hand
-  def initialize(name, hand)
-    @name = name
-    @hand = hand
+  attr_reader :human
+  def initialize(args)
+    @name = args[:name]
+    @hand = args[:hand]
+    @human = args[:human] || false
     @stand = false
   end
 

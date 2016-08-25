@@ -6,12 +6,15 @@ RSpec.describe Player do
   let(:ace) { Card.new("A", "♠") }
   let(:card) { Card.new(9, "♠") }
   let(:five) { Card.new(5, "♠") }
-  let(:player) { Player.new("Ken", Hand.new)}
+  let(:player) { Player.new(name: "Ken", hand: hand, human: true) }
+  let(:dealer) { Player.new(name: "Dealer", hand: hand) }
 
   describe '#initialize' do
-    it "has a name and a hand" do
+    it "has a name, a hand, and boolean a value for human" do
       expect(player.name).to eq("Ken")
       expect(player.hand).to be_a(Hand)
+      expect(player.human).to be(true)
+      expect(dealer.human).to be(false)
     end
   end
 

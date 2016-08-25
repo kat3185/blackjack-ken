@@ -1,25 +1,17 @@
 class Game
   attr_accessor :player, :computer, :deck, :input
   def initialize(name)
-    @player = Player.new(name, Hand.new)
-    @computer = Player.new("Dealer", Hand.new)
+    @player = Player.new(name: name, hand: Hand.new, human: true)
+    @computer = Player.new(name: "Dealer", hand: Hand.new, human: false)
     @deck = Deck.new
     @input = " "
   end
 
   def play
-    2.times do puts deal_to_player(player) end
-    while players_turn
-      puts player.formatted_score
-      puts hit_or_stand
-    end
-    unless player.bust?
-      puts deal_to_player(computer) while computer.wants_to_hit?
-      unless computer.bust?
-        puts computer.stand!
-        puts computer.formatted_score
-      end
-    end
+    player_turn = Turn.new(player: player, deck: deck)
+    player_turn.take
+    computer_turn = Turn.new(player: computer, deck: deck)
+    computer_turn.take unless player.bust?
     puts announce_winner
     play_again?
   end
@@ -28,7 +20,7 @@ class Game
 
   def play_again?
     print "Would you like to play again? (y/n) "
-    input = get_action
+    input = gets.chomp.downcase
     input == "y" ? Game.new(player.name).play : puts("Have a nice life now!")
   end
 
@@ -43,36 +35,6 @@ class Game
       player.wins!
     else
       computer.wins!
-    end
-  end
-
-  def deal_to_player(entity)
-    "#{entity.name} was dealt #{deck.deal_to(entity.hand.cards).last.display}"
-  end
-
-  def players_turn
-    !player.bust? && !player.stand?
-  end
-
-  def hit_or_stand
-    get_input
-    handle_input
-  end
-
-  def handle_input
-    input == "h" ? deal_to_player(player) : player.stand!
-  end
-
-  def get_action
-    gets.chomp.downcase
-  end
-
-  def get_input
-    self.input = " "
-    until 'hs'.include?(self.input)
-      puts "That is not a valid choice!" if !self.input == " "
-      print "Hit or Stand? (h/s) "
-      self.input = get_action
     end
   end
 end
