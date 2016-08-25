@@ -8,7 +8,9 @@ class Deck
   end
 
   def deal_to(player_cards)
-    player_cards << cards.pop
+    card = cards.pop
+    player_cards << card
+    card
   end
 
   private

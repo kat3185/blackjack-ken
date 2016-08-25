@@ -1,6 +1,6 @@
 class Turn
   HIT = "h"
-  VALID_OPTIONS = 'hs'
+  VALID_OPTIONS = ['h', 's']
 
   attr_accessor :player, :deck, :input
   def initialize(args)
@@ -24,16 +24,20 @@ class Turn
   end
 
   def deal_to_player
-    "#{player.name} was dealt #{deck.deal_to(player.hand.cards).last.display}"
+    "#{player.name} was dealt #{deck.deal_to(player.hand.cards).display}"
   end
 
   def hit_or_stand
-    get_input if player.human
-    player_hits ? deal_to_player : player.stand!
+    get_input if player.human?
+    player_hits! ? deal_to_player : player.stand!
   end
 
-  def player_hits
-    player.human ? input == HIT : player.wants_to_hit?
+  def player_hits!
+    player.human? ? player_chooses_hit? : player.wants_to_hit?
+  end
+
+  def player_chooses_hit?
+    input == HIT
   end
 
   def get_input
@@ -41,11 +45,15 @@ class Turn
     until VALID_OPTIONS.include?(self.input)
       puts "That is not a valid choice!" if !self.input == invalid_input
       print "Hit or Stand? (h/s) "
-      self.input = gets.chomp.downcase
+      self.input = get_action
     end
   end
 
   def invalid_input
-    "#{VALID_OPTIONS}8"
+    "#{VALID_OPTIONS}"
+  end
+
+  def get_action
+    gets.chomp.downcase
   end
 end

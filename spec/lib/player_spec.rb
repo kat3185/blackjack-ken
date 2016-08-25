@@ -10,11 +10,16 @@ RSpec.describe Player do
   let(:dealer) { Player.new(name: "Dealer", hand: hand) }
 
   describe '#initialize' do
-    it "has a name, a hand, and boolean a value for human" do
+    it "has a name and a hand" do
       expect(player.name).to eq("Ken")
       expect(player.hand).to be_a(Hand)
-      expect(player.human).to be(true)
-      expect(dealer.human).to be(false)
+    end
+  end
+
+  describe '#human?' do
+    it "has a name, a hand, and boolean a value for human" do
+      expect(player.human?).to eq(true)
+      expect(dealer.human?).to eq(false)
     end
   end
 

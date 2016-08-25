@@ -13,7 +13,7 @@ RSpec.describe Deck do
   describe '#deal_to' do
     it "adds a card to an array and returns that array" do
       last_card = deck.cards.last
-      expect(deck.deal_to([])).to eq([last_card])
+      expect(deck.deal_to([])).to eq(last_card)
     end
   end
 end
