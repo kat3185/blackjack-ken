@@ -8,7 +8,7 @@ class Blackjack
    puts "Welcome to Blackjack!"
    print "What's your name? "
    name = gets.chomp.capitalize
-   game = Blackjack::Game.new(name)
+   game = Blackjack::Game.new(name: name)
    game.play
  end
 end

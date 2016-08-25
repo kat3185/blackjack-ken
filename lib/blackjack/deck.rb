@@ -16,7 +16,7 @@ class Blackjack
 
     private
     def make_cards
-      SUITS.map {|suit| RANKS.map {|rank| Card.new(rank, suit)}}.flatten.shuffle!
+      SUITS.map {|suit| RANKS.map {|rank| Card.new(rank: rank, suit: suit)}}.flatten.shuffle!
     end
   end
 end

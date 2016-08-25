@@ -1,8 +1,8 @@
 class Blackjack
   class Game
     attr_accessor :player, :computer, :deck, :input
-    def initialize(name)
-      @player = Player.new(name: name, hand: Hand.new, human: true)
+    def initialize(args)
+      @player = Player.new(name: args[:name], hand: Hand.new, human: true)
       @computer = Player.new(name: "Dealer", hand: Hand.new, human: false)
       @deck = Deck.new
       @input = " "

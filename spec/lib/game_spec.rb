@@ -4,7 +4,7 @@ RSpec.describe Blackjack::Game do
   class Blackjack::Game
     public :announce_winner
   end
-  let(:game) { Blackjack::Game.new("Ken") }
+  let(:game) { Blackjack::Game.new(name: "Ken") }
 
   describe '#initialize' do
     it "has two players, an computer, and a pre-set input" do

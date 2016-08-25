@@ -2,10 +2,9 @@ require "spec_helper"
 
 RSpec.describe Blackjack::Player do
   let(:hand) { Blackjack::Hand.new }
-  let(:king) { Blackjack::Card.new("K", "♠") }
-  let(:ace) { Blackjack::Card.new("A", "♠") }
-  let(:card) { Blackjack::Card.new(9, "♠") }
-  let(:five) { Blackjack::Card.new(5, "♠") }
+  let(:king) { Blackjack::Card.new(rank: "K", suit:"♠") }
+  let(:ace) { Blackjack::Card.new(rank: "A", suit: "♠") }
+  let(:five) { Blackjack::Card.new(rank: 5, suit: "♠") }
   let(:player) { Blackjack::Player.new(name: "Ken", hand: hand, human: true) }
   let(:dealer) { Blackjack::Player.new(name: "Dealer", hand: hand) }
 

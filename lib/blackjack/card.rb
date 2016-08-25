@@ -1,21 +1,13 @@
 class Blackjack
   class Card
     attr_reader :rank, :suit
-    def initialize(rank, suit)
-      @rank = rank
-      @suit = suit
+    def initialize(args)
+      @rank = args[:rank]
+      @suit = args[:suit]
     end
 
     def display
       rank.to_s + suit
-    end
-
-    def is_ace?
-      rank == 'A'
-    end
-
-    def is_facecard?
-      'JQK'.include?(rank.to_s)
     end
 
     def value
@@ -27,6 +19,15 @@ class Blackjack
       else
         rank
       end
+    end
+
+    private
+    def is_ace?
+      rank == 'A'
+    end
+
+    def is_facecard?
+      'JQK'.include?(rank.to_s)
     end
   end
 end
