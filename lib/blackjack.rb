@@ -1,11 +1,14 @@
-require_relative "deck"
-require_relative "hand"
-require_relative "game"
-require_relative "player"
-require_relative "turn"
-
-puts "Welcome to Blackjack!"
-print "What's your name? "
-name = gets.chomp.capitalize
-game = Game.new(name)
-game.play
+require_relative "blackjack/deck"
+require_relative "blackjack/hand"
+require_relative "blackjack/game"
+require_relative "blackjack/player"
+require_relative "blackjack/turn"
+class Blackjack
+ def self.play
+   puts "Welcome to Blackjack!"
+   print "What's your name? "
+   name = gets.chomp.capitalize
+   game = Blackjack::Game.new(name)
+   game.play
+ end
+end
