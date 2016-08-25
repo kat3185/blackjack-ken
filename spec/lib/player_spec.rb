@@ -1,0 +1,67 @@
+require "spec_helper"
+
+RSpec.describe Player do
+  let(:hand) { Hand.new }
+  let(:king) { Card.new("K", "♠") }
+  let(:ace) { Card.new("A", "♠") }
+  let(:card) { Card.new(9, "♠") }
+  let(:five) { Card.new(5, "♠") }
+  let(:player) { Player.new("Ken", Hand.new)}
+
+  describe '#initialize' do
+    it "has a name and a hand" do
+      expect(player.name).to eq("Ken")
+      expect(player.hand).to be_a(Hand)
+    end
+  end
+
+  describe '#stand?' do
+    it "returns false by default" do
+      expect(player.stand?).to eq(false)
+    end
+    it "returns true if stand is reset to true" do
+      player.stand!
+      expect(player.stand?).to eq(true)
+    end
+  end
+
+  describe '#stand!' do
+    it "changes the value of the stand instance variable and returns a string" do
+      expect(player.stand?).to eq(false)
+      expect(player.stand!).to eq("Ken stands!\n\n")
+      expect(player.stand?).to eq(true)
+    end
+  end
+
+  describe '#wants_to_hit?' do
+    it "returns true if hand has value under 17" do
+      player.hand.cards << king << five << ace
+      expect(player.wants_to_hit?).to eq(true)
+    end
+    it "returns false if hand has value over 16" do
+      player.hand.cards << king << five << ace << ace
+      expect(player.wants_to_hit?).to eq(false)
+    end
+  end
+
+  describe '#score' do
+    it "returns the hand's score" do
+      player.hand.cards << king << five << ace << ace
+      expect(player.score).to eq(17)
+    end
+  end
+
+  describe '#formatted_score' do
+    it "returns the hand's score" do
+      player.hand.cards << king << five << ace << ace
+      expect(player.formatted_score).to eq("Ken's score: 17\n\n")
+    end
+  end
+
+  describe '#wins!' do
+    it "returns the hand's score" do
+      expect(player.wins!).to eq("Ken wins!")
+    end
+  end
+
+end
