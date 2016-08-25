@@ -3,7 +3,7 @@ require 'stringio'
 
 RSpec.describe Turn do
   class Turn
-    public :over?, :deal_to_player, :hit_or_stand, :player_hits, :get_input
+    public :over?, :deal_to_player, :hit_or_stand, :player_hits!, :get_input
 
     def get_action
       $stdin.gets.chomp
