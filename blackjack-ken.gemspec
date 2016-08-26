@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'blackjack-ken'
-  s.version     = '1.0.2'
-  s.date        = '2016-08-25'
+  s.version     = '1.0.3'
+  s.date        = '2016-08-26'
   s.summary     = "Play blackjack in the console"
   s.description = "Allows a user to play blackjack vs a computer in the console"
   s.authors     = ["Ken Thomas"]
