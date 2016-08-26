@@ -6,6 +6,10 @@ RSpec.describe Blackjack::Hand do
   let(:ace) { Blackjack::Card.new(rank: "A", suit: "♠") }
   let(:five) { Blackjack::Card.new(rank: 5, suit: "♠") }
 
+  class Blackjack::Hand
+    public :contains_ace?, :account_for_aces
+  end
+
   describe '#initialize' do
     it "has an array of cards" do
       expect(hand.cards.class).to be(Array)

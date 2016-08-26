@@ -10,16 +10,17 @@ class Blackjack
       account_for_aces(value)
     end
 
+    def bust?
+      cards_value > 21
+    end
+
+    private
     def account_for_aces(value)
       value < 12 && contains_ace? ? value + 10 : value
     end
 
     def contains_ace?
       cards.any? { |card| card.is_ace? }
-    end
-
-    def bust?
-      cards_value > 21
     end
   end
 end
