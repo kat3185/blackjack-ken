@@ -8,9 +8,9 @@ class Blackjack
       @cards = make_cards
     end
 
-    def deal_to(player_cards)
+    def deal_to(player_hand)
       card = cards.pop
-      player_cards << card
+      player_hand << card
       card
     end
 

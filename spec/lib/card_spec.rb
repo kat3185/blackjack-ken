@@ -7,7 +7,7 @@ RSpec.describe Blackjack::Card do
   let(:five) { Blackjack::Card.new(rank: 5, suit: "♠") }
 
   class Blackjack::Card
-    public :is_ace?, :is_facecard?
+    public :is_facecard?
   end
 
   describe '#initialize' do

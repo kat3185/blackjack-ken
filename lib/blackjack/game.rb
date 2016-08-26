@@ -1,11 +1,10 @@
 class Blackjack
   class Game
-    attr_accessor :player, :computer, :deck, :input
+    attr_accessor :player, :computer, :deck
     def initialize(args)
       @player = Player.new(name: args[:name], hand: Hand.new, human: true)
       @computer = Player.new(name: "Dealer", hand: Hand.new, human: false)
       @deck = Deck.new
-      @input = " "
     end
 
     def play
@@ -21,7 +20,7 @@ class Blackjack
     def play_again?
       print "Would you like to play again? (y/n) "
       input = gets.chomp.downcase
-      input == "y" ? Game.new(player.name).play : puts("Have a nice life now!")
+      input == "y" ? Game.new(name: player.name).play : puts("Have a nice life now!")
     end
 
     def announce_winner

@@ -13,7 +13,6 @@ RSpec.describe Blackjack::Game do
       expect(game.computer).to be_a(Blackjack::Player)
       expect(game.computer.name).to eq("Dealer")
       expect(game.deck).to be_a(Blackjack::Deck)
-      expect(game.input).to eq(" ")
     end
   end
 

@@ -21,11 +21,11 @@ class Blackjack
       end
     end
 
-    private
     def is_ace?
       rank == 'A'
     end
 
+    private
     def is_facecard?
       'JQK'.include?(rank.to_s)
     end
